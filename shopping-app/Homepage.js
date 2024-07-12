@@ -5,12 +5,12 @@ import { useState,useEffect } from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 
-
-
 const Homepage = () => {
   const [product, setProducts] = useState([]);
   const navigation = useNavigation();
   navigation.openDrawer();
+
+  
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -34,7 +34,7 @@ const Homepage = () => {
       <Products key={item.id} 
       image={item.image} 
       title={item.title} 
-      rating={item.rating} 
+     
       price={item.price} 
       onAddToCart={()=> handleAddToCart(item)}
       />
