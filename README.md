@@ -1,6 +1,9 @@
 # rn-assignment7-11303292
 
 # screenshots
+
+![Screenshot 2024-07-12 231724](https://github.com/user-attachments/assets/332961f5-f57b-430e-a46e-aac1a2d03a57)
+
 ![Screenshot_1720826318](https://github.com/user-attachments/assets/e299f919-dd09-453f-9df6-4d2fe5a25153)
 
 ![Screenshot_1720826250](https://github.com/user-attachments/assets/930f3989-b0f8-4442-8766-ebe1f21a0853)
@@ -16,3 +19,5 @@
 ![Screenshot_1720826289](https://github.com/user-attachments/assets/debe0d5c-0acf-47ee-8f97-48a9d632a301)
 
 ![Screenshot_1720826308](https://github.com/user-attachments/assets/3049224e-f8ac-4b0a-8b4b-a93f9324409f)
+
+
