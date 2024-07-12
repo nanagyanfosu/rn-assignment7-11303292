@@ -1,15 +1,16 @@
 import React from'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image,FlatList} from 'react-native';
 import Products from './Products';
-import ProductScreen from './ProductScreen';
 import { useState,useEffect } from 'react';
 import {useNavigation} from '@react-navigation/native';
-import Cart from './Cart';
 
 
 
-const Homepage = ({navigation}) => {
+
+const Homepage = () => {
   const [product, setProducts] = useState([]);
+  const navigation = useNavigation();
+  navigation.openDrawer();
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -43,7 +44,7 @@ const Homepage = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-<TouchableOpacity>
+<TouchableOpacity onPress={() => navigation.openDrawer()}>
   <Image source ={require('./assets/Menu.png')} size={25}></Image>
 </TouchableOpacity>
 
@@ -59,8 +60,22 @@ const Homepage = ({navigation}) => {
 </View>
 
       </View>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+<Text style={{fontSize: 26}}>OUR STORY</Text>
+
+<View style={{flexDirection: 'row', columnGap: 20}}>
+<TouchableOpacity>
+  <Image source ={require('./assets/Listview.png')} size={25}></Image>
+</TouchableOpacity>
+<TouchableOpacity>
+  <Image source ={require('./assets/Filter.png')} size={25}></Image>
+</TouchableOpacity>
+</View>
+
+</View>
  
-     <View>
+     <View showsVerticalScrollIndicator={false}>
       <FlatList 
       data={product}
       renderItem={renderItem}
@@ -74,8 +89,8 @@ const Homepage = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-      padding:15,
-      
+      padding:25,
+      flex: 1,
     
     },
     header:{
