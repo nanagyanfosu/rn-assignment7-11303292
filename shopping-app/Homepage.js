@@ -21,11 +21,11 @@ const Homepage = () => {
         return response.json();
       })
       .then(data => {
-        setProducts(Array.isArray(data) ? data : []); // Assuming the API returns an array
+        setProducts(Array.isArray(data) ? data : []);
       })
       .catch(error => {
         console.error('There was a problem with your fetch operation:', error);
-        setProducts([]); // Ensure products is reset to an empty array on error
+        setProducts([]);
       });
   }, []);
 

@@ -1,9 +1,10 @@
 import React from "react";
 import { ScrollView, Text, Image, StyleSheet,View, } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import {useCart} from './CartContext';
 
 const ProductScreen = ({route}) => {
+    const {addToCart} = useCart();
     const {product} = route.params;
     return (
         <ScrollView style={styles.container}>
@@ -48,7 +49,7 @@ const ProductScreen = ({route}) => {
             </View>
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity style={{flexDirection: 'row'}}>
+                <TouchableOpacity style={{flexDirection: 'row'}} onPress={addToCart}>
                     <Image source={require('./assets/Plus.png')}/>
                 
                 <Text style={{fontSize: 18, marginLeft: 10}}>ADD TO BASKET</Text>
@@ -93,7 +94,6 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     description: {
-        // fontFamily: 'Times New Roman',
         fontSize: 16,
         marginBottom: 10,
         lineHeight: 25,

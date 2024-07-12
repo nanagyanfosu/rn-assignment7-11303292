@@ -1,17 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from "react-native";
+import { useCart } from "./CartContext";
 
-
-  const Products = ({image, title, description, price, onAddToCart}) => {
+  const Products = ({image, title, description, price}) => {
+    const {addItemToCart} = useCart();
+const item ={image, title, description, price}
     return (
       <View style={styles.card}>
         <Image source={{ uri: image }} style={styles.image} />
+        <TouchableOpacity style={styles.addToCartButton} onPress={() => addItemToCart(item)}>
+          <Image source={require('./assets/add_circle.png')} />
+        </TouchableOpacity>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
         <Text style={styles.price}>${price}</Text>
-        <TouchableOpacity style={styles.addToCartButton} onPress={onAddToCart}>
-          <Image source={require('./assets/add_circle.png')} />
-        </TouchableOpacity>
+        
       </View>
     );
   
@@ -45,14 +48,12 @@ const styles = StyleSheet.create({
       color: 'red',
     },
     addToCartButton: {
-    position: 'absolute',
+    position: 'relative',
    bottom: -180,
    right: -80,
     width: 30,
     height: 30,
-    
-  
-      
+ 
     },
    });
 
