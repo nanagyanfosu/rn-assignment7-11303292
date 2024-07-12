@@ -1,37 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from "react-native";
 
-import { useState,useEffect } from "react";
-
- 
-// const Products = () => {
-    // const [products, setProducts] = useState([]);
-  
-    // useEffect(() => {
-    //     fetch('https://fakestoreapi.com/products/1')
-    //       .then(response => {
-    //         if (!response.ok) {
-    //           throw new Error('Network response was not ok');
-    //         }
-    //         return response.json();
-    //       })
-    //       .then(data => {
-    //         setProducts(Array.isArray(data) ? data : []); // Assuming the API returns an array
-    //       })
-    //       .catch(error => {
-    //         console.error('There was a problem with your fetch operation:', error);
-    //         setProducts([]); // Ensure products is reset to an empty array on error
-    //       });
-    //   }, []);
-  
-    // return  (
-//    <ScrollView>
-//   {Array.isArray(products) && products.map((product) => (
-//     <Product key={product.id} image={product.image} title={product.title} description={product.description} price={product.price} onAddToCart={()=> handleAddToCart(product)}/>
-//   ))}
-//    </ScrollView>
-  
-//   )};
 
   const Products = ({image, title, description, price, onAddToCart}) => {
     return (
@@ -41,7 +10,7 @@ import { useState,useEffect } from "react";
         <Text style={styles.description}>{description}</Text>
         <Text style={styles.price}>${price}</Text>
         <TouchableOpacity style={styles.addToCartButton} onPress={onAddToCart}>
-          <Text>+</Text>
+          <Image source={require('./assets/add_circle.png')} />
         </TouchableOpacity>
       </View>
     );
@@ -52,16 +21,16 @@ const styles = StyleSheet.create({
     card: {
       width: '50%',
       marginBottom: 10,
+     
     },
     image: {
       width:'100%',
-      height: 200,
+      height: 100,
       resizeMode: 'contain',
-       //maintains aspect ratio while scaling
       position: 'relative',
     },
     title: {
-      fontSize: 13,
+      fontSize: 11,
       fontWeight: 'bold',
      flexWrap: 'wrap',
     },
@@ -76,9 +45,9 @@ const styles = StyleSheet.create({
       color: 'red',
     },
     addToCartButton: {
-    position: 'relative',
-   bottom: -160,
-   right: -110,
+    position: 'absolute',
+   bottom: -180,
+   right: -80,
     width: 30,
     height: 30,
     
